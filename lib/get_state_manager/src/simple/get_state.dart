@@ -197,10 +197,10 @@ class GetBuilderState<T extends GetxController> extends State<GetBuilder<T>>
   void didUpdateWidget(GetBuilder oldWidget) {
     super.didUpdateWidget(oldWidget as GetBuilder<T>);
     // to avoid conflicts when modifying a "grouped" id list.
+    widget.didUpdateWidget?.call(oldWidget, this);
     if (oldWidget.id != widget.id) {
       _subscribeToController();
     }
-    widget.didUpdateWidget?.call(oldWidget, this);
   }
 
   @override
